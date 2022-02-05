@@ -2,7 +2,7 @@
 /*
 * Plugin Name: BB Design System
 * Description: Block-base design system for WordPress, Gutenberg and Full site editing
-* Version: 1.20220130.3
+* Version: 1.20220205
 */
 
 
@@ -10,11 +10,6 @@ namespace BBDesignSystem\Init;
 
 
 add_action('init', function () {
-
-    if (isset($_GET['dd'])) {
-
-        exit;
-    }
 
     register_block_pattern_category(
         'bbds',
@@ -24,6 +19,13 @@ add_action('init', function () {
     load_pattern_configs();
 
 }, 9);
+
+add_action('wp_enqueue_scripts', function () {
+    add_mods_assets();
+});
+add_action('enqueue_block_editor_assets', function () {
+    add_mods_assets();
+});
 
 
 
@@ -58,7 +60,28 @@ function load_pattern_configs()
     }
 }
 
+function add_mods_assets(){
+    
+    foreach (get_directories('mods') as $dir_name) {
 
+        $dir_path = sprintf('%s/mods/%s', __DIR__, $dir_name);
+        if (!is_dir($dir_path)) {
+            continue;
+        }
+
+        $file_path = sprintf('%s/style.css', $dir_path);
+
+        if (!file_exists($file_path)) {
+            continue;
+        }
+        $file_url = plugins_url('mods/' . $dir_name . '/style.css', __FILE__);
+        $file_version = filemtime($file_path);
+//         $block_css_version = filemtime($css_file_path);;
+
+        wp_enqueue_style($dir_name . '-style', $file_url, [], $file_version);
+
+    }
+}
 // function backend()
 // {
 
@@ -98,9 +121,10 @@ function load_pattern_configs()
 
 
 
-function get_directories()
+function get_directories($subdir = 'patterns')
 {
-    $directories = scandir(__DIR__ . '/patterns');
+    
+    $directories = scandir(__DIR__ . '/' . $subdir);
     $directories = array_diff($directories, array('..', '.'));
     return $directories;
 }
