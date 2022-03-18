@@ -22,8 +22,8 @@ add_action('plugins_loaded', function () {
 
 function load_styles_config()
 {
-    foreach (get_directories('mods') as $dir_name) {
-        $dir_path = sprintf('%s/mods/%s', __DIR__, $dir_name);
+    foreach (get_directories('styles') as $dir_name) {
+        $dir_path = sprintf('%s/styles/%s', __DIR__, $dir_name);
         if (!is_dir($dir_path)) {
             continue;
         }
@@ -64,9 +64,9 @@ function load_pattern_config()
 
 function add_mods_assets()
 {
-    foreach (get_directories('mods') as $dir_name) {
+    foreach (get_directories('styles') as $dir_name) {
 
-        $dir_path = sprintf('%s/mods/%s', __DIR__, $dir_name);
+        $dir_path = sprintf('%s/styles/%s', __DIR__, $dir_name);
         if (!is_dir($dir_path)) {
             continue;
         }

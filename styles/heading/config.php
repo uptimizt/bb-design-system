@@ -6,7 +6,9 @@ add_action( 'after_setup_theme', function(){
         array(
             'name'         => 'heading--promo-1',
             'label'        => 'Promo 1',
-            'inline_style' => '.heading--promo-1 {}',
+            'inline_style' => '.is-style-heading--promo-1 {
+                font-size: 7rem;
+            }',
         )
     );
     
