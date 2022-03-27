@@ -76,7 +76,7 @@ function add_mods_assets()
         if (!file_exists($file_path)) {
             continue;
         }
-        $file_url = plugins_url('mods/' . $dir_name . '/style.css', __FILE__);
+        $file_url = plugins_url('styles/' . $dir_name . '/style.css', __FILE__);
         $file_version = filemtime($file_path);
 
         wp_enqueue_style($dir_name . '-style', $file_url, [], $file_version);
