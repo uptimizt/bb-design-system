@@ -1,29 +1,6 @@
 .wp-block-button {
 
-    .wp-block-button__link {
-        color: #fff;
-        background-color: #000;
-        opacity: 80%;
-        padding: 12px 20px;
-        border-radius: 3px;
-        box-shadow: none;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 1em;
-        letter-spacing: 0.01em;
-        line-height: 1;
-        text-align: center;
-        text-decoration: none;
-        overflow-wrap: break-word;
-        box-sizing: border-box;
-        transition: all .3s;
     
-        &:hover {
-            opacity: 100%;
-            top: -2px;
-            position: relative;
-        }
-    }
 
     &.is-style-outline{
         .wp-block-button__link {

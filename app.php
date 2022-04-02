@@ -2,7 +2,7 @@
 /*
 * Plugin Name: BB Design System
 * Description: Block-base design system for WordPress, Gutenberg and Full site editing
-* Version: 1.20220318
+* Version: 1.20220402
 */
 
 namespace BBDesignSystem;
