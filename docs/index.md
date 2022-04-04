@@ -1,4 +1,3 @@
-## Features
 - Styles as modificators for standard blocks
 - Patterns
 - CSS Utilities
