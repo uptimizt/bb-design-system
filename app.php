@@ -2,7 +2,8 @@
 /*
 * Plugin Name: BB Design System
 * Description: Block-base design system for WordPress, Gutenberg and Full site editing
-* Version: 1.20220402
+* GitHub Plugin URI: https://github.com/uptimizt/bb-design-system
+* Version: 1.20220407
 */
 
 namespace BBDesignSystem;
